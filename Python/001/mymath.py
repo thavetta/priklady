@@ -60,7 +60,7 @@ def jePrvocislo(n):
         return False
     
 # Číslo n je liché a budeme ho zkoušet dělit všemi lichými čísly až do odmocniny z n    
-    limit = int(math.sqrt(n)) + 1
+    limit = math.isqrt(n) + 1
 
     for delitel in range(3,limit,2):
         if (n % delitel) == 0:
@@ -77,6 +77,8 @@ def vratPrvocisla(max):
 # tento algoritmus pracuje pouze s lichými čísly, sudé rovnou vyřadí
 # využívá princip, že index i odpovídá číslu i*2 + 1 (tedy 1 => 3, 2=> 5, 3 => 7, atd.)
     konec = max >> 1
+    if (max & 1) == 1:
+        konec += 1
 # False odpovídá v algoritmu neškrtnutou položku
     data = [False]*konec
 # rovnou vyřadíme index 0 odpovídající 1, protože 1 není prvočíslo
@@ -107,5 +109,22 @@ def vratPrvocisla(max):
     
     return vysledek
 
+def VypisCisel(data, maxNaRadek = 10, oddelovac = ', '):
+
+    pocet = 0
+    start = True
+    for x in data:
+        if start:
+            start = False
+        else:
+            print(oddelovac, end='')
+        print(x,end='')
+        pocet += 1
+        if (pocet == maxNaRadek):
+            pocet = 0
+            start = True
+            print()
+
+    print()
 
 

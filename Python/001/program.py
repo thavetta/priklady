@@ -4,8 +4,7 @@ import mymath as m
 def VypisPrvocisel():
     max = int(input('Zadej max pro prvočísla: '))
     vysledek = m.vratPrvocisla(max)
-    for x in vysledek:
-        print(x)
+    m.VypisCisel(vysledek)
 
 
 def TestNSD():
@@ -14,7 +13,7 @@ def TestNSD():
 
     nsd = m.nsd(a,b)
     nsn = m.nsn(a,b)
-# ukázka různých způsobů výpisu
+    # ukázka různých způsobů výpisu
     print('NSD(',a,',',b,')=',nsd,sep='')
     print(f'NSN({a},{b})={nsn}')
 
